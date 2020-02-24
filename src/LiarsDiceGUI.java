@@ -233,7 +233,7 @@ public class LiarsDiceGUI extends JPanel
    }
 
    // This method passes the turn to the next player and allows them to play
-   public void passTurn()
+   private void passTurn()
    {
       if(playerId == 1)
       {
@@ -402,7 +402,7 @@ public class LiarsDiceGUI extends JPanel
    }
 
    // This method is for when the bet may or may not be a lie
-   public void call()
+   private void call()
    {
       if(playerId == 1)
          info.setText("<html><em>" + player1.getCurrentPlayer() + " challenges this bet!</em></html>"); 
@@ -417,7 +417,7 @@ public class LiarsDiceGUI extends JPanel
    }
 
    // This method checks if the bet was a lie or not
-   public void checkBet()
+   private void checkBet()
    {
       // Total up the rolls for all the players (1 is a wildcard, meaning it always counts toward the current bet)
       int total = 0;
@@ -448,7 +448,7 @@ public class LiarsDiceGUI extends JPanel
    }
 
    // This method is for when a player challenges but the bet was not a lie
-   public void falseChallenge()
+   private void falseChallenge()
    {
       info.setText("<html>This bet was <strong>not</strong> a lie!</html>");
       betIsChallenged = false;
@@ -457,7 +457,7 @@ public class LiarsDiceGUI extends JPanel
    }
 
    // This method is for when a player challenges and the bet was a lie
-   public void liarChallenged()
+   private void liarChallenged()
    {
       info.setText("<html>This bet <strong>was</strong> a lie!</html>");
       betWasLie = true;
@@ -467,7 +467,7 @@ public class LiarsDiceGUI extends JPanel
    }
 
    // This method is for when the round is over
-   public void roundOver()
+   private void roundOver()
    {
       if(betWasLie)
       {
@@ -575,7 +575,7 @@ public class LiarsDiceGUI extends JPanel
    }
 
    // This method is for when the player loses their last die
-   public void gameOver()
+   private void gameOver()
    {
       info.setText("<html>You lost your last die! &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp <strong>Game over.</strong></html>");
       btnContinue.setEnabled(false);
