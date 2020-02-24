@@ -92,12 +92,6 @@ public class LiarsDicePlayer
          return "You";
    }
 
-   // Accessor for roll i
-   public int getRoll(int i)
-   {
-      return rolls[i];
-   }
-
    // Returns your rolls in a String
    public String listOfRolls()
    {
@@ -111,11 +105,11 @@ public class LiarsDicePlayer
       return yourRolls;
    }
 
+   // Accessor for roll i
+   public int getRoll(int i){ return rolls[i]; }
+
    // Accessor for the numberOfDice
-   public int getNumberOfDice()
-   {
-      return numberOfDice;
-   }
+   public int getNumberOfDice(){ return numberOfDice; }
 
    // The quantity or the face must be greater than the previous bet for it to be a legal bet
    public boolean betIsLegal(int oldQuantity, int newQuantity, int oldFace, int newFace)
