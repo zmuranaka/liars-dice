@@ -7,5 +7,6 @@
 cd bin
 :: runs the Driver class file
 java Driver
+cd ../
 :: prevents the window from automatically closing
 pause
