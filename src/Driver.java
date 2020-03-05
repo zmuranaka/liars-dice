@@ -6,8 +6,8 @@
 
 public class Driver
 {
-	public static void main(String[] args)
-	{
-		new LiarsDiceGUI();
-	}
+    public static void main(String[] args)
+    {
+        new LiarsDiceGUI();
+    }
 }
