@@ -11,6 +11,8 @@ import java.util.Random;
 
 public class LiarsDiceGUI extends JPanel
 {
+    static final long serialVersionUID = 1L; // Visual Studio Code said that I need this
+
     // Window components
     private JLabel lblPic = new JLabel(new ImageIcon(getClass().getResource("images/dice.jpg")));
     private JFrame window = new JFrame("Liar's Dice");
