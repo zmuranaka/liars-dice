@@ -14,6 +14,8 @@ bin
 &nbsp;&nbsp;&nbsp;&nbsp;This folder contains all of the compiled classes.  
 images  
 &nbsp;&nbsp;&nbsp;&nbsp;This folder contains the Liar's Dice logo I made.  
+lib  
+&nbsp;&nbsp;&nbsp;&nbsp;This folder contains the jar (java archive) of the project.  
 src  
 &nbsp;&nbsp;&nbsp;&nbsp;This folder contains all of the source code.
 
