@@ -125,12 +125,9 @@ public class LiarsDiceGUI extends JPanel
                 diceLeft.setText("Total Dice Left: " + totalDice);
                 
                 // All of the bots still in the game roll
-                if(player1!=null)
-                    player1.roll();
-                if(player2!=null)
-                    player2.roll();
-                if(player3!=null)
-                    player3.roll();
+                if(player1 != null) player1.roll();
+                if(player2 != null) player2.roll();
+                if(player3 != null) player3.roll();
                 
                 // We do not need to check if the human is null or not because if they lose their last die the game is over
                 human.roll();
@@ -198,8 +195,7 @@ public class LiarsDiceGUI extends JPanel
                     btnContinue.setEnabled(true);
                     info.setText("");
                 }
-                else
-                    info.setText("<html><em>This is not a legal bet.</em> Try again.</html>");
+                else info.setText("<html><em>This is not a legal bet.</em> Try again.</html>");
             }
         });
         
@@ -209,14 +205,10 @@ public class LiarsDiceGUI extends JPanel
             public void actionPerformed(ActionEvent e)
             {
                 // btnContinue can call a variety of methods depending on the situation
-                if(betIsChallenged && betIsCertainlyALie)
-                    liarChallenged();
-                else if(betIsChallenged)
-                    checkBet();
-                else if(roundIsOver)
-                    roundOver();
-                else
-                    passTurn();
+                if(betIsChallenged && betIsCertainlyALie) liarChallenged();
+                else if(betIsChallenged) checkBet();
+                else if(roundIsOver) roundOver();
+                else passTurn();
             }
         });
         
@@ -251,9 +243,7 @@ public class LiarsDiceGUI extends JPanel
                 else if(player1.betIsUnlikely(totalDice, quantity, face))
                 {
                     int random = generator.nextInt(10) + 1;
-                    // The bot will call 80% of the time if the bet is unlikely
-                    if(random > 2)
-                        call(); 
+                    if(random > 2) call(); // The bot will call 80% of the time if the bet is unlikely 
                 }
                 else
                 {
@@ -275,9 +265,7 @@ public class LiarsDiceGUI extends JPanel
                 else if(player1.betIsUnlikely(totalDice, quantity, face))
                 {
                     int random = generator.nextInt(10) + 1;
-                    // The bot will call 80% of the time if the bet is unlikely
-                    if(random > 2)
-                        call();
+                    if(random > 2) call(); // The bot will call 80% of the time if the bet is unlikely
                 }
                 else
                 {
@@ -314,9 +302,7 @@ public class LiarsDiceGUI extends JPanel
                 else if(player2.betIsUnlikely(totalDice, quantity, face))
                 {
                     int random = generator.nextInt(10) + 1;
-                    // The bot will call 80% of the time if the bet is unlikely
-                    if(random > 2)
-                        call();
+                    if(random > 2) call(); // The bot will call 80% of the time if the bet is unlikely
                 }
                 else
                 {
@@ -361,9 +347,7 @@ public class LiarsDiceGUI extends JPanel
                 else if(human.betIsUnlikely(totalDice, quantity, face))
                 {
                     int random = generator.nextInt(10) + 1;
-                    //The bot will call 80% of the time if the bet is unlikely
-                    if(random > 2)
-                        call();
+                    if(random > 2) call(); //The bot will call 80% of the time if the bet is unlikely
                 }
                 else
                 {
@@ -385,9 +369,7 @@ public class LiarsDiceGUI extends JPanel
                 else if(human.betIsUnlikely(totalDice, quantity, face))
                 {
                     int random = generator.nextInt(10) + 1;
-                    //The bot will call 80% of the time if the bet is unlikely
-                    if(random > 2)
-                        call();
+                    if(random > 2) call(); //The bot will call 80% of the time if the bet is unlikely
                 }
                 else
                 {
@@ -398,22 +380,17 @@ public class LiarsDiceGUI extends JPanel
                     currentFace.setText(face + "'s");
                 }
             }
-            else
-                playerId = 3;
+            else playerId = 3;
         }
     }
 
     // This method is for when the bet may or may not be a lie
     private void call()
     {
-        if(playerId == 1)
-            info.setText("<html><em>" + player1.getCurrentPlayer() + " challenges this bet!</em></html>"); 
-        else if(playerId == 2)
-            info.setText("<html><em>" + player2.getCurrentPlayer() + " challenges this bet!</em></html>");
-        else if(playerId == 3)
-            info.setText("<html><em>" + player3.getCurrentPlayer() + " challenges this bet!</em></html>");
-        else
-            info.setText("<html><em>" + human.getCurrentPlayer() + " challenge this bet!</em></html>");
+        if(playerId == 1) info.setText("<html><em>" + player1.getCurrentPlayer() + " challenges this bet!</em></html>"); 
+        else if(playerId == 2) info.setText("<html><em>" + player2.getCurrentPlayer() + " challenges this bet!</em></html>");
+        else if(playerId == 3) info.setText("<html><em>" + player3.getCurrentPlayer() + " challenges this bet!</em></html>");
+        else info.setText("<html><em>" + human.getCurrentPlayer() + " challenge this bet!</em></html>");
         
         betIsChallenged = true;
     }
@@ -425,28 +402,22 @@ public class LiarsDiceGUI extends JPanel
         int total = 0;
         for(int i = 0; i < player1.getNumberOfDice(); i++)
         {
-            if(player1.getRoll(i) == 1 || player1.getRoll(i) == face)
-                total++;
+            if(player1.getRoll(i) == 1 || player1.getRoll(i) == face) total++;
         }
         for(int i = 0; i < player2.getNumberOfDice(); i++)
         {
-            if(player2.getRoll(i) == 1 || player2.getRoll(i) == face)
-                total++;
+            if(player2.getRoll(i) == 1 || player2.getRoll(i) == face) total++;
         }
         for(int i = 0; i < player3.getNumberOfDice(); i++)
         {
-            if(player3.getRoll(i) == 1 || player3.getRoll(i) == face)
-                total++;
+            if(player3.getRoll(i) == 1 || player3.getRoll(i) == face) total++;
         }
         for(int i = 0; i < human.getNumberOfDice(); i++)
         {
-            if(human.getRoll(i) == 1 || human.getRoll(i) == face)
-                total++; 
+            if(human.getRoll(i) == 1 || human.getRoll(i) == face) total++; 
         }
-        if(total >= quantity)
-            falseChallenge();     
-        else
-            liarChallenged();
+        if(total >= quantity) falseChallenge();     
+        else liarChallenged();
     }
 
     // This method is for when a player challenges but the bet was not a lie
@@ -475,9 +446,8 @@ public class LiarsDiceGUI extends JPanel
         {
             if(playerId == 1)
             {
-                int newDice=human.getNumberOfDice() - 1;
-                if(newDice == 0)
-                    gameOver();
+                int newDice = human.getNumberOfDice() - 1;
+                if(newDice == 0) gameOver();
                 else
                 {
                     human.newNumberOfDice(newDice);
@@ -486,9 +456,8 @@ public class LiarsDiceGUI extends JPanel
             }
             else if(playerId == 2)
             {
-                int newDice=player1.getNumberOfDice() - 1;
-                if(newDice == 0)
-                    player1 = null;
+                int newDice = player1.getNumberOfDice() - 1;
+                if(newDice == 0) player1 = null;
                 else
                 {
                     player1.newNumberOfDice(newDice);
@@ -498,8 +467,7 @@ public class LiarsDiceGUI extends JPanel
             else if(playerId == 3)
             {
                 int newDice = player2.getNumberOfDice() - 1;
-                if(newDice == 0)
-                    player2 = null;
+                if(newDice == 0) player2 = null;
                 else
                 {
                     player2.newNumberOfDice(newDice);
@@ -509,9 +477,9 @@ public class LiarsDiceGUI extends JPanel
             else
             {
                 int newDice = player3.getNumberOfDice() - 1;
-                if(newDice == 0)
-                    player3 = null;
-                else{
+                if(newDice == 0) player3 = null;
+                else
+                {
                     player3.newNumberOfDice(newDice);
                     info.setText("<html>" + player3.getCurrentPlayer() + " loses a die.</html>");
                 }
@@ -522,8 +490,7 @@ public class LiarsDiceGUI extends JPanel
             if(playerId == 1)
             {
                 int newDice=player1.getNumberOfDice() - 1;
-                if(newDice == 0)
-                    player1 = null;
+                if(newDice == 0) player1 = null;
                 else
                 {
                     player1.newNumberOfDice(newDice);
@@ -533,8 +500,7 @@ public class LiarsDiceGUI extends JPanel
             else if(playerId == 2)
             {
                 int newDice = player2.getNumberOfDice() - 1;
-                if(newDice == 0)
-                    player2 = null;
+                if(newDice == 0) player2 = null;
                 else
                 {
                     player2.newNumberOfDice(newDice);
@@ -544,8 +510,7 @@ public class LiarsDiceGUI extends JPanel
             else if(playerId == 3)
             {
                 int newDice = player3.getNumberOfDice() - 1;
-                if(newDice == 0)
-                    player3=null;
+                if(newDice == 0) player3 = null;
                 else
                 {
                     player3.newNumberOfDice(newDice);
@@ -555,8 +520,7 @@ public class LiarsDiceGUI extends JPanel
             else
             {
                 int newDice = human.getNumberOfDice() - 1;
-                if(newDice == 0)
-                    gameOver();
+                if(newDice == 0) gameOver();
                 else
                 {
                     human.newNumberOfDice(newDice);
