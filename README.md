@@ -44,5 +44,5 @@ https://docs.oracle.com/javase/tutorial/deployment/jar/build.html
 ## Author:
 
 Zachary Muranaka  
-&nbsp;&nbsp;&nbsp;&nbsp;zacharymuranaka@mail.weber.edu  
+&nbsp;&nbsp;&nbsp;&nbsp;zmuranaka@gmail.com  
 &nbsp;&nbsp;&nbsp;&nbsp;https://zmuranaka.github.io
